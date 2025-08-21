@@ -1,0 +1,71 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Username Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Instagram Username Manager</h1>
+  <div id="form-section">
+    <h2>Add / Update Record</h2>
+    <form id="record-form">
+      <input type="hidden" id="record-id" />
+      <label for="username">Username:</label>
+      <input type="text" id="username" required />
+      <label for="scraped_at">Scraped At:</label>
+      <input type="datetime-local" id="scraped_at" />
+      <label for="status">Status:</label>
+      <select id="status">
+        <option value="unused">unused</option>
+        <option value="used">used</option>
+        <option value="processed">processed</option>
+        <option value="invalid">invalid</option>
+      </select>
+      <label for="notes">Notes:</label>
+      <input type="text" id="notes" />
+      <button type="submit" id="submit-btn">Add Record</button>
+    </form>
+  </div>
+  <div id="search-section">
+    <h2>Search Records</h2>
+    <input type="text" id="search-username" placeholder="Search by username" />
+    <select id="search-status">
+      <option value="">All statuses</option>
+      <option value="unused">unused</option>
+      <option value="used">used</option>
+      <option value="processed">processed</option>
+      <option value="invalid">invalid</option>
+    </select>
+    <button id="search-btn">Search</button>
+  </div>
+  <div id="records-section">
+    <h2>Records</h2>
+    <table id="records-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Scraped At</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div id="logs-section">
+    <h2>Access Logs</h2>
+    <button id="view-logs-btn">View Logs</button>
+    <pre id="logs-display"></pre>
+  </div>
+  <div id="claim-section">
+    <h2>Retrieve Unused Accounts</h2>
+    <input type="number" id="claim-count" min="1" placeholder="Number of accounts" />
+    <button id="claim-btn">Get Accounts</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
